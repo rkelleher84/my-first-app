@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/rkelleher84/my-first-app/issues"
   },
-  "homepage": "https://github.com/rkelleher84/my-first-app#readme"
+  "homepage": "https://github.com/rkelleher84/my-first-app#readme",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "express": "^4.15.2"
+  }
 }
