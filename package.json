@@ -19,6 +19,7 @@
   "homepage": "https://github.com/rkelleher84/my-first-app#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
     "express": "^4.15.2"
   }
 }
