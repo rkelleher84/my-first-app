@@ -4,8 +4,45 @@ global.Promise = require('bluebird');
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+
+var options = {
+    replset: {
+        ssl: true,
+            ha: true
+    }
+};
+
+mongoose.connect(process.env.MONGO_URI || 'mongodb://heroku_58nrxwtc:1nb6vpd85953354brn8cd2cac8@ds137760.mlab.com:37760/heroku_58nrxwtc', options);
+
+var User = require('./models/user');
 
 app.use(bodyParser.json());
+
+app.post('/user', function(req, res) {
+    var newUser = new User({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name
+    });
+    newUser.save(function(err, user) {
+        if (err) {
+            return res.status(500).json({error: err});
+        } else {
+            return res.status(200).json(user);
+        }
+    });
+});
+
+app.get('/users', function(req, res) {
+   User.find({}, function(err, users) {
+       if (err) {
+           return res.status(500).json({error: err});
+       } else {
+           return res.status(200).json(users);
+       }
+   });
+});
+
 
 app.post('/multiply', function(req, res) {
     promiseMultiply(req.body.num1, req.body.num2)
@@ -36,6 +73,8 @@ function promiseMultiply(num1, num2) {
         }
     });
 }
+
+
 var port = process.env.PORT || 9001;
 app.listen(port);
 
