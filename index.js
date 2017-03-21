@@ -36,6 +36,6 @@ function promiseMultiply(num1, num2) {
         }
     });
 }
-
-app.listen(9001);
+var port = process.env.PORT || 9001;
+app.listen(port);
 
