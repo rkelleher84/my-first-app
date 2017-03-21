@@ -1,0 +1,20 @@
+{
+  "name": "my-first-app",
+  "version": "1.0.0",
+  "description": "This is my first app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkelleher84/my-first-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rkelleher84/my-first-app/issues"
+  },
+  "homepage": "https://github.com/rkelleher84/my-first-app#readme"
+}
